@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Navbar from "../../components/Navbar";
-import "./createBLog.css";
+import "./createblog.css";
 import { IoIosArrowDropdown } from "react-icons/io";
 import authorimg from "../../assets/author.jpg";
 import { useState } from "react";
