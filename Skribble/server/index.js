@@ -24,25 +24,25 @@ app.use(express.json());
 
 // app.use(cors());
 
-app.use((req, res, next) => {
-  res.setHeader(
-    "Access-Control-Allow-Origin",
-    "https://skribble-api.vercel.ap"
-  );
-  res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-  next();
-});
+// app.use((req, res, next) => {
+//   res.setHeader(
+//     "Access-Control-Allow-Origin",
+//     "https://skribble-api.vercel.ap"
+//   );
+//   res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
+//   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+//   next();
+// });
 
-const cors = require("cors");
-const corsOpts = {
-  origin: "https://skribble-frontend.vercel.app",
-  credentials: true,
-  methods: ["GET", "POST", "HEAD", "PUT", "PATCH", "DELETE"],
-  allowedHeaders: ["auth-token", "Content-Type"],
-  // exposedHeaders: ["auth-token", "Content-Type"],
-};
-app.use(cors(corsOpts));
+// const cors = require("cors");
+// const corsOpts = {
+//   origin: "https://skribble-frontend.vercel.app",
+//   credentials: true,
+//   methods: ["GET", "POST", "HEAD", "PUT", "PATCH", "DELETE"],
+//   allowedHeaders: ["auth-token", "Content-Type"],
+//   // exposedHeaders: ["auth-token", "Content-Type"],
+// };
+// app.use(cors(corsOpts));
 
 //////////////
 // server.use(

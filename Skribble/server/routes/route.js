@@ -9,15 +9,22 @@ const updatePost = require("../controller/updatePost.js");
 const deletePost = require("../controller/deletePost.js");
 const addComment = require("../controller/addComment.js");
 ///base get
-router.get("/", (req, res) => {
-  console.log("We have successfully started routing");
-  res.send("We have successfully started routing");
-});
+// router.get("/", (req, res) => {
+//   console.log("We have successfully started routing");
+//   res.send("We have successfully started routing");
+// });
 
 const auth = require("../middleware/auth.js");
 
-router.post("/signup", signUpUser);
-router.post("/loginuser", login);
+const corsAuth = (req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  next();
+};
+
+router.post("/signup", corsAuth, signUpUser);
+router.post("/loginuser", corsAuth, login);
 router.get("/allposts", fetchAllPosts);
 router.get("/blogdata/:id", getBlogData);
 router.put("/updatepost/:id", auth, updatePost);
