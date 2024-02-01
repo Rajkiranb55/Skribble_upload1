@@ -25,6 +25,15 @@ app.use(express.json());
 app.use(cors());
 
 //////////////
+server.use(
+  cors({
+    origin: ["https://skribble-frontend.vercel.app"],
+    methods: ["POST", "GET", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+
+//https://skribble-frontend.vercel.app/
 
 //Need to import all the setup routes to let teh server use them
 
