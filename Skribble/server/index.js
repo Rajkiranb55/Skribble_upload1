@@ -22,16 +22,26 @@ app.use(express.json());
 
 //////////////
 
-app.use(cors());
+// app.use(cors());
+
+const cors = require("cors");
+const corsOpts = {
+  origin: "https://skribble-frontend.vercel.app",
+  credentials: true,
+  methods: ["GET", "POST", "HEAD", "PUT", "PATCH", "DELETE"],
+  allowedHeaders: ["auth-token", "Content-Type"],
+  // exposedHeaders: ["auth-token", "Content-Type"],
+};
+app.use(cors(corsOpts));
 
 //////////////
-server.use(
-  cors({
-    origin: ["https://skribble-frontend.vercel.app"],
-    methods: ["POST", "GET", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
+// server.use(
+//   cors({
+//     origin: ["https://skribble-frontend.vercel.app"],
+//     methods: ["POST", "GET", "PUT", "DELETE"],
+//     credentials: true,
+//   })
+// );
 
 //https://skribble-frontend.vercel.app/
 
