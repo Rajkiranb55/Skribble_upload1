@@ -1,0 +1,14 @@
+.posts_section {
+  display: flex;
+  justify-content: center;
+  margin-top: 70px;
+  margin-left: 160px;
+  margin-right: 160px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+.link {
+  text-decoration: none;
+}
