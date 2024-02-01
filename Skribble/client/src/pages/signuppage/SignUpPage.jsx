@@ -24,8 +24,10 @@ const SignUpPage = ({ isUserAUthenticated }) => {
   const handleSignup = async () => {
     console.log("signing in", formData);
     let responseData;
+    //http://localhost:8000
+    //https://skribble-api.vercel.app
     axios
-      .post("http://localhost:8000/signup", formData)
+      .post("https://skribble-api.vercel.app/signup", formData)
       .then(({ data }) => {
         // console.log(data);
         responseData = data;
@@ -39,8 +41,10 @@ const SignUpPage = ({ isUserAUthenticated }) => {
   ///////////
   const handleLogin2 = async () => {
     let data;
+    //http://localhost:8000
+    //https://skribble-api.vercel.app
     await axios
-      .post("http://localhost:8000/loginuser", formData)
+      .post("https://skribble-api.vercel.app/loginuser", formData)
       .then((response) => (data = response.data))
       .catch((error) => console.log(error));
 

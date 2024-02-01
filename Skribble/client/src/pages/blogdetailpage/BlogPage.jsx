@@ -21,7 +21,9 @@ const BlogPage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      fetch(`http://localhost:8000/blogdata/${id}`)
+      //http://localhost:8000
+      //https://skribble-api.vercel.app
+      fetch(`https://skribble-api.vercel.app/blogdata/${id}`)
         .then((response) => response.json())
         .then((data) => setPost(data));
     };

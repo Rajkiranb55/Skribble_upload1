@@ -33,8 +33,11 @@ const CreateBlog = () => {
 
       if (image) {
         //API CALL TO UPLOAD THE IMAGE
+
+        //https://skribble-api.vercel.app
+        //http://localhost:8000
         await axios
-          .post("http://localhost:8000/upload", formData)
+          .post("https://skribble-api.vercel.app/upload", formData)
           .then((response) => (responseData = response.data))
           .then((error) => console.log(error));
 
@@ -59,7 +62,9 @@ const CreateBlog = () => {
   };
   const savePost = async () => {
     if (localStorage.getItem("auth-token")) {
-      fetch("http://localhost:8000/createpost", {
+      //http://localhost:8000
+      //https://skribble-api.vercel.app
+      fetch("https://skribble-api.vercel.app/createpost", {
         method: "POST",
         headers: {
           Accept: "application/form-data",

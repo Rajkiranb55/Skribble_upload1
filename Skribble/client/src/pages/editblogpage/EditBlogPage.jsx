@@ -29,7 +29,9 @@ const EditBlogPage = () => {
   const { id } = useParams();
   useEffect(() => {
     const fetchData = async () => {
-      fetch(`http://localhost:8000/blogdata/${id}`)
+      //http://localhost:8000/blogdata
+      //https://skribble-api.vercel.app
+      fetch(`https://skribble-api.vercel.app/${id}`)
         .then((response) => response.json())
         .then((data) => setPost(data));
     };
@@ -44,7 +46,9 @@ const EditBlogPage = () => {
       if (img) {
         //API CALL TO UPLOAD THE IMAGE
         await axios
-          .post("http://localhost:8000/upload", formData)
+          //http://localhost:8000
+          //https://skribble-api.vercel.app
+          .post("https://skribble-api.vercel.app/upload", formData)
           .then((response) => (responseData = response.data))
           .then((error) => console.log(error));
 
@@ -68,7 +72,9 @@ const EditBlogPage = () => {
   };
   const updatePost = () => {
     if (localStorage.getItem("auth-token")) {
-      fetch(`http://localhost:8000/updatepost/${id}`, {
+      //http://localhost:8000
+      //https://skribble-api.vercel.app
+      fetch(`https://skribble-api.vercel.app/updatepost/${id}`, {
         method: "PUT",
         headers: {
           Accept: "application/form-data",

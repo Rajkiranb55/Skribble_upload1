@@ -14,7 +14,9 @@ const Posts = () => {
 
   useEffect(() => {
     const fetchData = () => {
-      fetch("http://localhost:8000/allposts")
+      //http://localhost:8000
+      //https://skribble-api.vercel.app
+      fetch("https://skribble-api.vercel.app/allposts")
         .then((response) => response.json())
         .then((data) => setPosts(data));
     };
