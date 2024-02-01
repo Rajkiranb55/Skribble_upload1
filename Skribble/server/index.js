@@ -21,8 +21,8 @@ const app = express();
 app.use(express.json());
 
 //////////////
-
-// app.use(cors());
+const cors = require("cors");
+app.use(cors());
 
 // app.use((req, res, next) => {
 //   res.setHeader(
@@ -34,7 +34,7 @@ app.use(express.json());
 //   next();
 // });
 
-// const cors = require("cors");
+//
 // const corsOpts = {
 //   origin: "https://skribble-frontend.vercel.app",
 //   credentials: true,
