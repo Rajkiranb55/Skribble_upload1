@@ -3,12 +3,13 @@ const express = require("express");
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const multer = require("multer");
-const cors = require("cors");
+// const cors = require("cors");
 const dotenv = require("dotenv").config();
 
 ///////////////////////
 //POST WHERE WE WILL RUN OUR APP
-const PORT = 8000;
+// const PORT = "https://skribblebackend.onrender.com";
+const PORT = process.env.API_URL;
 
 //////////////////
 //creating an express app
@@ -73,7 +74,7 @@ const DbConnection = require("./database/Db.js");
 DbConnection(username, password);
 /////////////////
 ///STARTING THE SERVER
-API_HOSTING = "https://skribble-api.vercel.app";
-app.listen(API_HOSTING, () =>
+
+app.listen(PORT, () =>
   console.log(`Server is running successfully on PORT ${PORT}`)
 );

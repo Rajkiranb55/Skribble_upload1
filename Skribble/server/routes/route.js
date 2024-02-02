@@ -16,15 +16,15 @@ const addComment = require("../controller/addComment.js");
 
 const auth = require("../middleware/auth.js");
 
-const corsAuth = (req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-  next();
-};
+// const corsAuth = (req, res, next) => {
+//   res.setHeader("Access-Control-Allow-Origin", "*");
+//   res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
+//   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+//   next();
+// };
 
-router.post("/signup", corsAuth, signUpUser);
-router.post("/loginuser", corsAuth, login);
+router.post("/signup", signUpUser);
+router.post("/loginuser", login);
 router.get("/allposts", fetchAllPosts);
 router.get("/blogdata/:id", getBlogData);
 router.put("/updatepost/:id", auth, updatePost);

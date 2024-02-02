@@ -44,7 +44,7 @@ const SignUpPage = ({ isUserAUthenticated }) => {
     //http://localhost:8000
     //https://skribble-api.vercel.app
     await axios
-      .post("https://skribble-api.vercel.app/loginuser", formData)
+      .post("https://skribblebackend.onrender.com/loginuser", formData)
       .then((response) => (data = response.data))
       .catch((error) => console.log(error));
 
