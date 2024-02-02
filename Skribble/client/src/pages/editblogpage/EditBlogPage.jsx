@@ -31,7 +31,7 @@ const EditBlogPage = () => {
     const fetchData = async () => {
       //http://localhost:8000/blogdata
       //https://skribble-api.vercel.app
-      fetch(`https://skribblebackend.onrender.com/${id}`)
+      fetch(`https://skribblebackend.onrender.com/blogdata/${id}`)
         .then((response) => response.json())
         .then((data) => setPost(data));
     };
