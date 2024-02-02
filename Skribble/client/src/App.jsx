@@ -25,19 +25,40 @@ const App = () => {
           path="/"
           element={<SignUpPage isUserAUthenticated={isUserAUthenticated} />}
         />
+
         <Route
-          path="/"
+          path="/home"
           element={<PrivateRoute isAuthenticated={isAuthenticated} />}
         >
           <Route
             path="/home"
-            element={<HomePage isAuthenticated={isAuthenticated} />}
+            element={
+              <HomePage
+                isAuthenticated={isAuthenticated}
+                isUserAUthenticated={isUserAUthenticated}
+              />
+            }
           />
         </Route>
 
-        <Route path="/blogdata/:id" element={<BlogPage />} />
-        <Route path="/updatepost/:id" element={<EditBlogPage />} />
-        <Route path="/createblog" element={<CreateBlog />} />
+        <Route
+          path="/blogdata/:id"
+          element={<PrivateRoute isAuthenticated={isAuthenticated} />}
+        >
+          <Route path="/blogdata/:id" element={<BlogPage />} />
+        </Route>
+        <Route
+          path="/updatepost/:id"
+          element={<PrivateRoute isAuthenticated={isAuthenticated} />}
+        >
+          <Route path="/updatepost/:id" element={<EditBlogPage />} />
+        </Route>
+        <Route
+          path="/createblog"
+          element={<PrivateRoute isAuthenticated={isAuthenticated} />}
+        >
+          <Route path="/createblog" element={<CreateBlog />} />
+        </Route>
         <Route path="/about" element={<AboutPage />} />
       </Routes>
     </>

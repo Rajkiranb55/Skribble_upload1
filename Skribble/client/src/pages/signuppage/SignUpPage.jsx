@@ -22,7 +22,7 @@ const SignUpPage = ({ isUserAUthenticated }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   const handleSignup = async () => {
-    console.log("signing in", formData);
+    // console.log("signing in", formData);
     let responseData;
     //http://localhost:8000
     //https://skribble-api.vercel.app
@@ -31,9 +31,11 @@ const SignUpPage = ({ isUserAUthenticated }) => {
       .then(({ data }) => {
         // console.log(data);
         responseData = data;
+        setAccount("login");
       })
       .catch(({ response }) => {
         // console.log(response);
+        navigate("/");
       });
     // console.log(responseData);
   };

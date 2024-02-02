@@ -8,8 +8,15 @@ import { useState } from "react";
 import { useContext } from "react";
 import { UserContext } from "../context/UserContextProvider";
 import { useEffect } from "react";
-const Navbar = () => {
+import { useNavigate } from "react-router-dom";
+const Navbar = ({ isUserAUthenticated }) => {
   const { userName } = useContext(UserContext);
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.setItem("auth-token", "");
+    navigate("/");
+    isUserAUthenticated(false);
+  };
   return (
     <div className="navbar">
       <div>
@@ -39,8 +46,8 @@ const Navbar = () => {
             {userName ? userName : "User Name"}
           </div>
         </li>
-        <Link className="link" to="/home">
-          <li>Logout</li>
+        <Link className="link">
+          <li onClick={() => handleLogout()}>Logout</li>
         </Link>
       </ul>
     </div>

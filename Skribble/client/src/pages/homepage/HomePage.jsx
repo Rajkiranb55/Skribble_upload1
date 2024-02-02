@@ -15,7 +15,7 @@ import { useState } from "react";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContextProvider";
 import { useNavigate } from "react-router";
-const HomePage = () => {
+const HomePage = ({ isUserAUthenticated }) => {
   const { userName } = useContext(UserContext);
   const [allPosts, setAllPosts] = useState([]);
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ const HomePage = () => {
 
   return (
     <>
-      <Navbar />
+      <Navbar isUserAUthenticated={isUserAUthenticated} />
       <div className="homepage">
         <div className="banner_container">
           <img src={option2} alt="" className="banner_img" />
