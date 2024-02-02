@@ -4,7 +4,7 @@
   height: 460px;
   padding: 16px;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   gap: 16px;
   border-radius: 12px;
