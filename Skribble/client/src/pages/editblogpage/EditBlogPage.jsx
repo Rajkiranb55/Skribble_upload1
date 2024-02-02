@@ -31,7 +31,7 @@ const EditBlogPage = () => {
     const fetchData = async () => {
       //http://localhost:8000/blogdata
       //https://skribble-api.vercel.app
-      fetch(`https://skribble-api.vercel.app/${id}`)
+      fetch(`https://skribblebackend.onrender.com/${id}`)
         .then((response) => response.json())
         .then((data) => setPost(data));
     };
@@ -48,7 +48,7 @@ const EditBlogPage = () => {
         await axios
           //http://localhost:8000
           //https://skribble-api.vercel.app
-          .post("https://skribble-api.vercel.app/upload", formData)
+          .post("https://skribblebackend.onrender.com/upload", formData)
           .then((response) => (responseData = response.data))
           .then((error) => console.log(error));
 
@@ -74,7 +74,7 @@ const EditBlogPage = () => {
     if (localStorage.getItem("auth-token")) {
       //http://localhost:8000
       //https://skribble-api.vercel.app
-      fetch(`https://skribble-api.vercel.app/updatepost/${id}`, {
+      fetch(`https://skribblebackend.onrender.com/updatepost/${id}`, {
         method: "PUT",
         headers: {
           Accept: "application/form-data",

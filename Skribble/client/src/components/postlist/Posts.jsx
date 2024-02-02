@@ -16,7 +16,7 @@ const Posts = () => {
     const fetchData = () => {
       //http://localhost:8000
       //https://skribble-api.vercel.app
-      fetch("https://skribble-api.vercel.app/allposts")
+      fetch("https://skribblebackend.onrender.com/allposts")
         .then((response) => response.json())
         .then((data) => setPosts(data));
     };

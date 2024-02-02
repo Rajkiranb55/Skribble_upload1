@@ -37,7 +37,7 @@ const CreateBlog = () => {
         //https://skribble-api.vercel.app
         //http://localhost:8000
         await axios
-          .post("https://skribble-api.vercel.app/upload", formData)
+          .post("https://skribblebackend.onrender.com/upload", formData)
           .then((response) => (responseData = response.data))
           .then((error) => console.log(error));
 
@@ -64,7 +64,7 @@ const CreateBlog = () => {
     if (localStorage.getItem("auth-token")) {
       //http://localhost:8000
       //https://skribble-api.vercel.app
-      fetch("https://skribble-api.vercel.app/createpost", {
+      fetch("https://skribblebackend.onrender.com/createpost", {
         method: "POST",
         headers: {
           Accept: "application/form-data",
