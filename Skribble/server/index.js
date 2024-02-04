@@ -94,9 +94,9 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-server.use("/images", express.static("upload/images"));
+app.use("/images", express.static("upload/images"));
 
-server.post("/upload", upload.single("newPost"), (req, res) => {
+app.post("/upload", upload.single("newPost"), (req, res) => {
   res.json({
     success: 1,
     image_url: `https://skribble-frontend.vercel.app/${req.file.filename}`,
