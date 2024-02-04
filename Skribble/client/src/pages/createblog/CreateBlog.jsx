@@ -44,11 +44,11 @@ const CreateBlog = () => {
           }
         )
           .then((res) => res.json())
-          .then((data) => (responseData = data))
+          .then((data) => (post.picture = data.url))
           .catch((err) => console.log(err));
 
-        console.log(responseData.url);
-        post.picture = responseData.url;
+        // console.log(responseData.url);
+        // post.picture = responseData.url;
         console.log(post);
       }
     };
