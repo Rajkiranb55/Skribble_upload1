@@ -82,23 +82,23 @@ app.listen(PORT, () =>
 /////upload image to server using multer
 const path = require("path");
 
-const storage = multer.diskStorage({
-  destination: "./upload/images",
-  filename: (req, file, cb) => {
-    return cb(
-      null,
-      `${file.filename}_${Date.now()}_${path.extname(file.originalname)}`
-    );
-  },
-});
+// const storage = multer.diskStorage({
+//   destination: "./upload/images",
+//   filename: (req, file, cb) => {
+//     return cb(
+//       null,
+//       `${file.filename}_${Date.now()}_${path.extname(file.originalname)}`
+//     );
+//   },
+// });
 
-const upload = multer({ storage: storage });
+// const upload = multer({ storage: storage });
 
-app.use("/images", express.static("upload/images"));
+// app.use("/images", express.static("upload/images"));
 
-app.post("/upload", upload.single("newPost"), (req, res) => {
-  res.json({
-    success: 1,
-    image_url: `http://localhost:8000/${req.file.filename}`,
-  });
-});
+// app.post("/upload", upload.single("newPost"), (req, res) => {
+//   res.json({
+//     success: 1,
+//     image_url: `http://localhost:8000/${req.file.filename}`,
+//   });
+// });

@@ -28,7 +28,7 @@ const CreateBlog = () => {
   useEffect(() => {
     const getImage = async () => {
       let responseData;
-
+      console.log("on create blog page");
       if (image) {
         //API CALL TO UPLOAD THE IMAGE
         let formData = new FormData();
