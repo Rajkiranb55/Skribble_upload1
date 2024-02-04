@@ -34,8 +34,6 @@ const CreateBlog = () => {
       if (image) {
         //API CALL TO UPLOAD THE IMAGE
 
-        //https://skribble-api.vercel.app
-        //http://localhost:8000
         await axios
           .post("https://skribblebackend.onrender.com/upload", formData)
           .then((response) => (responseData = response.data))

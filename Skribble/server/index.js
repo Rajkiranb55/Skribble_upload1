@@ -78,3 +78,27 @@ DbConnection(username, password);
 app.listen(PORT, () =>
   console.log(`Server is running successfully on PORT ${PORT}`)
 );
+
+/////upload image to server using multer
+const path = require("path");
+
+const storage = multer.diskStorage({
+  destination: "./upload/images",
+  filename: (req, file, cb) => {
+    return cb(
+      null,
+      `${file.filename}_${Date.now()}_${path.extname(file.originalname)}`
+    );
+  },
+});
+
+const upload = multer({ storage: storage });
+
+server.use("/images", express.static("upload/images"));
+
+server.post("/upload", upload.single("newPost"), (req, res) => {
+  res.json({
+    success: 1,
+    image_url: `https://skribble-frontend.vercel.app/${req.file.filename}`,
+  });
+});

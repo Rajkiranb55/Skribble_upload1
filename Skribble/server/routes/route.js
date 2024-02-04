@@ -31,6 +31,7 @@ router.put("/updatepost/:id", auth, updatePost);
 router.delete("/deletepost/:id", auth, deletePost);
 router.post("/addcomment", auth, addComment);
 router.get("/allcomments/:id");
+
 ///to create a post
 
 const createpost = require("../controller/createpost.js");
@@ -39,22 +40,22 @@ router.post("/createpost", auth, createpost);
 
 //////////////////////////
 //for uploading image
-const path = require("path");
-const multer = require("multer");
+// const path = require("path");
+// const multer = require("multer");
 
-const storage = multer.diskStorage({
-  destination: "./upload/images",
-  filename: (req, file, cb) => {
-    return cb(
-      null,
-      `${file.filename}_${Date.now()}_${path.extname(file.originalname)}`
-    );
-  },
-});
+// const storage = multer.diskStorage({
+//   destination: "./upload/images",
+//   filename: (req, file, cb) => {
+//     return cb(
+//       null,
+//       `${file.filename}_${Date.now()}_${path.extname(file.originalname)}`
+//     );
+//   },
+// });
 
-const upload = multer({ storage: storage });
+// const upload = multer({ storage: storage });
 
-router.post("/upload", upload.single("newPost"), uploadImg);
+// router.post("/upload", upload.single("newPost"), uploadImg);
 /////////////////////////////
 
 module.exports = router;
