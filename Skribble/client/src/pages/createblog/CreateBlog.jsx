@@ -31,6 +31,7 @@ const CreateBlog = () => {
       console.log("on create blog page");
       if (image) {
         //API CALL TO UPLOAD THE IMAGE
+        console.log("got the image");
         let formData = new FormData();
         formData.append("file", image);
         formData.append("upload_preset", "shgjwcgd");
