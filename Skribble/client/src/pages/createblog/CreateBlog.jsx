@@ -36,10 +36,13 @@ const CreateBlog = () => {
         formData.append("upload_preset", "shgjwcgd");
         formData.append("cloud_name", "dvp8s6mdm");
 
-        fetch("https://api-ap.cloudinary.com/v1_1/dvp8s6mdm/image/upload", {
-          method: "post",
-          body: formData,
-        })
+        await fetch(
+          "https://api-ap.cloudinary.com/v1_1/dvp8s6mdm/image/upload",
+          {
+            method: "post",
+            body: formData,
+          }
+        )
           .then((res) => res.json())
           .then((data) => (responseData = data))
           .catch((err) => console.log(err));
