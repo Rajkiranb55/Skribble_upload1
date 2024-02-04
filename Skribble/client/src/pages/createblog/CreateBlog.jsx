@@ -30,14 +30,17 @@ const CreateBlog = () => {
       let responseData;
       let formData = new FormData();
       formData.append("newPost", image);
+      formData.append("upload_preset", "shgjwcgd");
+      formData.append("cloud_name", "dvp8s6mdm");
 
       if (image) {
         //API CALL TO UPLOAD THE IMAGE
-
         await axios
           .post("https://skribblebackend.onrender.com/upload", formData)
-          .then((response) => (responseData = response.data))
+          .then((response) => console.log(response.data))
           .then((error) => console.log(error));
+
+        // https://api-ap.cloudinary.com/v1_1/dvp8s6mdm/image/upload,{{method:"post",body:data}}
 
         if (responseData.success) {
           console.log(responseData.image_url);
@@ -80,6 +83,7 @@ const CreateBlog = () => {
       console.log("kuch toh gadbad hai bhai");
     }
   };
+
   return (
     <div className="create_blog_page">
       <Navbar />

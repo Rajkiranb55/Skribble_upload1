@@ -99,6 +99,6 @@ app.use("/images", express.static("upload/images"));
 app.post("/upload", upload.single("newPost"), (req, res) => {
   res.json({
     success: 1,
-    image_url: `https://skribble-frontend.vercel.app/${req.file.filename}`,
+    image_url: `http://localhost:8000/${req.file.filename}`,
   });
 });
