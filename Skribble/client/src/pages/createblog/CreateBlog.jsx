@@ -28,25 +28,25 @@ const CreateBlog = () => {
   useEffect(() => {
     const getImage = async () => {
       let responseData;
-      let formData = new FormData();
-      formData.append("newPost", image);
-      formData.append("upload_preset", "shgjwcgd");
-      formData.append("cloud_name", "dvp8s6mdm");
 
       if (image) {
         //API CALL TO UPLOAD THE IMAGE
-        await axios
-          .post("https://skribblebackend.onrender.com/upload", formData)
-          .then((response) => console.log(response.data))
-          .then((error) => console.log(error));
+        let formData = new FormData();
+        formData.append("file", image);
+        formData.append("upload_preset", "shgjwcgd");
+        formData.append("cloud_name", "dvp8s6mdm");
 
-        // https://api-ap.cloudinary.com/v1_1/dvp8s6mdm/image/upload,{{method:"post",body:data}}
+        fetch("https://api-ap.cloudinary.com/v1_1/dvp8s6mdm/image/upload", {
+          method: "post",
+          body: formData,
+        })
+          .then((res) => res.json())
+          .then((data) => (responseData = data))
+          .catch((err) => console.log(err));
 
-        if (responseData.success) {
-          console.log(responseData.image_url);
-          post.picture = responseData.image_url;
-          console.log(post);
-        }
+        console.log(responseData.url);
+        post.picture = responseData.url;
+        console.log(post);
       }
     };
     getImage();
