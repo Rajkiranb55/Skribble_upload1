@@ -29,6 +29,30 @@ const BlogPage = () => {
     };
     fetchData();
   }, []);
+  const deleteBlog = async () => {
+    if (localStorage.getItem("auth-token")) {
+      let resp = await fetch(
+        `https://skribblebackend.onrender.com/deletepost/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Accept: "application/form-data",
+            "auth-token": `${localStorage.getItem("auth-token")}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            post: post,
+          }),
+        }
+      );
+
+      console.log(resp);
+    } else {
+      console.log("kuch toh gadbad hai bhai");
+    }
+    navigate("/home");
+  };
+
   return (
     <div className="blogpage">
       <Navbar />
@@ -61,7 +85,7 @@ const BlogPage = () => {
                 <MdEdit className="edit_icon" /> Edit Blog
               </button>
             </Link>
-            <button>
+            <button onClick={() => deleteBlog()}>
               <MdDelete className="edit_icon" />
               Delete
             </button>
